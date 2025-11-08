@@ -1,0 +1,16 @@
+#
+# zed-ehir
+#
+
+*.wasm
+
+#
+# Rust
+#
+
+/target
+
+#
+# Grammar
+#
+grammars

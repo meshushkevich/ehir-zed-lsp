@@ -1,0 +1,14 @@
+id = "ehir-zed-lsp"
+name = "EHIR LSP Server"
+version = "0.0.1"
+schema_version = 1
+authors = ["Maksim Shushkevich <m.e.shushkevich@yandex.com>"]
+description = "LSP server for EHIR"
+repository = "https://github.com/meshushkevich/ehir-zed-lsp"
+
+[grammars.ehir]
+repository = "https://github.com/meshushkevich/tree-sitter-ehir"
+commit = "82ad62c73a7732f179da43d1e586909ba7c9127a"
+
+# [languages]
+# ehir = { config = "languages/ehir/config.toml" }
