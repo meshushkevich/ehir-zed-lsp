@@ -2,50 +2,49 @@
 
 [
   "fn"
-  "fdecl"
-  "fdefi"
-  "struct"
-  "pub"
-  "br"
-  "cbr"
-  "ret"
-  "match"
-  "switch"
-  "ret"
+  ; "fdecl"
+  ; "fdefi"
+  ; "struct"
+  ; "pub"
+  ; "br"
+  ; "cbr"
+  ; "ret"
+  ; "match"
+  ; "switch"
 ] @keyword
 
 ;; Operators
 
-[
- "add"
- "sub"
- "mul"
- "div"
-] @keyword.operator
+; [
+;  "add"
+;  "sub"
+;  "mul"
+;  "div"
+; ] @keyword.operator
 
-[
-  "="
-] @operator
+; [
+;   "="
+; ] @operator
 
-;; Punctuations
+; ;; Punctuations
 
-[
-  ";"
-  ":"
-  ","
-  "."
-] @punctuation.delimiter
+; [
+;   ";"
+;   ":"
+;   ","
+;   "."
+; ] @punctuation.delimiter
 
 ;; Brackets
 
-[
- "("
- ")"
- "["
- "]"
- "{"
- "}"
-] @punctuation.bracket
+; [
+;  "("
+;  ")"
+;  "["
+;  "]"
+;  "{"
+;  "}"
+; ] @punctuation.bracket
 
 ;; Variables
 
@@ -61,47 +60,47 @@
 
 ;; Constants
 
-((identifier) @constant
- (#match? @constant "^[A-Z][A-Z_0-9]*$"))
+; ((identifier) @constant
+;  (#match? @constant "^[A-Z][A-Z_0-9]*$"))
 
-(vararg_expression) @constant
+; (vararg_expression) @constant
 
-(nil) @constant.builtin
+; (nil) @constant.builtin
 
-[
-  (false)
-  (true)
-] @boolean
+; [
+;   (false)
+;   (true)
+; ] @boolean
 
-;; Tables
+; ;; Tables
 
-(field name: (identifier) @property)
+; (field name: (identifier) @property)
 
-(dot_index_expression field: (identifier) @property)
+; (dot_index_expression field: (identifier) @property)
 
-(table_constructor
-[
-  "{"
-  "}"
-] @constructor)
+; (table_constructor
+; [
+;   "{"
+;   "}"
+; ] @constructor)
 
-;; Functions
+; ;; Functions
 
-(parameters (identifier) @parameter)
+; (parameters (identifier) @parameter)
 
-(function_call
-  name: [
-    (identifier) @function
-    (dot_index_expression field: (identifier) @function)
-  ])
+; (function_call
+;   name: [
+;     (identifier) @function
+;     (dot_index_expression field: (identifier) @function)
+;   ])
 
-(function_declaration
-  name: [
-    (identifier) @function.definition
-    (dot_index_expression field: (identifier) @function.definition)
-  ])
+; (function_declaration
+;   name: [
+;     (identifier) @function.definition
+;     (dot_index_expression field: (identifier) @function.definition)
+;   ])
 
-(method_index_expression method: (identifier) @function.method)
+; (method_index_expression method: (identifier) @function.method)
 
 ; (function_call
 ;   (identifier) @function.builtin
@@ -114,11 +113,11 @@
 
 ;; Others
 
-(comment) @comment
+; (comment) @comment
 
-(hash_bang_line) @preproc
+; (hash_bang_line) @preproc
 
-(number) @number
+; (number) @number
 
-(string) @string
-(escape_sequence) @string.escape
+; (string) @string
+; (escape_sequence) @string.escape
