@@ -3,3 +3,4 @@ grammar = "ehir"
 path_suffixes = ["ehir", "ehr"]
 autoclose_before = "]"
 brackets = [{ start = "[", end = "]", close = true, newline = true }]
+tab_size = 2

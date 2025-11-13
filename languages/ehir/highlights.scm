@@ -1,123 +1,104 @@
 ;; Keywords
 
 [
-  "fn"
-  ; "fdecl"
-  ; "fdefi"
-  ; "struct"
-  ; "pub"
-  ; "br"
-  ; "cbr"
-  ; "ret"
-  ; "match"
-  ; "switch"
+    "imp"
+    "enum"
+    "fn"
+    "fdecl"
+    "fdefi"
+
+    "add"
+    "sub"
+    "div"
+    "rem"
+    "grt"
+    "geq"
+    "les"
+    "leq"
+    "neq"
+    "ieq"
+    "or"
+    "and"
+    "lsh"
+    "rsh"
+    "xor"
+
+    "getfieldptr"
+    "getptr"
+    "call"
+    "not"
+
+    "capa"
+    "caps"
+    "cape"
+    "capsh"
+    "capeh"
+    "store"
+    "load"
+    "cast"
+    "br"
+    "cbr"
+    "ret"
+    "switch"
+    "match"
 ] @keyword
 
-;; Operators
+; Comments
+(comment) @comment
 
-; [
-;  "add"
-;  "sub"
-;  "mul"
-;  "div"
-; ] @keyword.operator
+; Types
+; (
+;     instruction_fn
+;         name: (identifier) @type
+; )
+; (
+;     instruction_enum
+;         name: (identifier) @type
+; )
+; (
+;     instruction_c_like_struct
+;         name: (identifier) @type
+; )
+; (
+;     instruction_tuple_like_struct
+;         name: (identifier) @type
+; )
+; (
+;     instruction_unit_like_struct
+;         name: (identifier) @type
+; )
+(untyped_variable name: (identifier) @variable)
+(instruction_call func_name: (identifier) @type)
+(type
+    name: (identifier) @type
+    pointer: (identifier) @string.special
+)
+(block
+    block_name: (identifier) @namespace
+)
 
-; [
-;   "="
-; ] @operator
+(visibility_modifier) @string.special
+(instruction_br label: (identifier) @namespace)
 
-; ;; Punctuations
 
-; [
-;   ";"
-;   ":"
-;   ","
-;   "."
-; ] @punctuation.delimiter
+; ; Variables
+; (typed_variable
+;   (untyped_variable (identifier) @variable)
+;   (identifier) @type)
 
-;; Brackets
+; ; Atomics
+; (isized_int) @number
 
-; [
-;  "("
-;  ")"
-;  "["
-;  "]"
-;  "{"
-;  "}"
-; ] @punctuation.bracket
+; ; Functions
+; (instruction_fn name: (identifier) @function)
+; (block block_name: (identifier) @namespace)
 
-;; Variables
 
-(identifier) @variable
-
-; ((identifier) @variable.special
-;  (#eq? @variable.special "self"))
-
-; (variable_list
-;    attribute: (attribute
-;      (["<" ">"] @punctuation.bracket
-;       (identifier) @attribute)))
-
-;; Constants
-
-; ((identifier) @constant
-;  (#match? @constant "^[A-Z][A-Z_0-9]*$"))
-
-; (vararg_expression) @constant
-
-; (nil) @constant.builtin
-
-; [
-;   (false)
-;   (true)
-; ] @boolean
-
-; ;; Tables
-
-; (field name: (identifier) @property)
-
-; (dot_index_expression field: (identifier) @property)
-
-; (table_constructor
-; [
-;   "{"
-;   "}"
-; ] @constructor)
-
-; ;; Functions
-
-; (parameters (identifier) @parameter)
-
-; (function_call
-;   name: [
-;     (identifier) @function
-;     (dot_index_expression field: (identifier) @function)
-;   ])
-
-; (function_declaration
-;   name: [
-;     (identifier) @function.definition
-;     (dot_index_expression field: (identifier) @function.definition)
-;   ])
-
-; (method_index_expression method: (identifier) @function.method)
-
-; (function_call
-;   (identifier) @function.builtin
-;   (#any-of? @function.builtin
-;     ;; built-in functions in Lua 5.1
-;     "assert" "collectgarbage" "dofile" "error" "getfenv" "getmetatable" "ipairs"
-;     "load" "loadfile" "loadstring" "module" "next" "pairs" "pcall" "print"
-;     "rawequal" "rawget" "rawset" "require" "select" "setfenv" "setmetatable"
-;     "tonumber" "tostring" "type" "unpack" "xpcall"))
-
-;; Others
-
-; (comment) @comment
-
-; (hash_bang_line) @preproc
-
-; (number) @number
-
-; (string) @string
-; (escape_sequence) @string.escape
+; Punctuation
+"{" @punctuation.bracket
+"}" @punctuation.bracket
+"(" @punctuation.bracket
+")" @punctuation.bracket
+"=" @operator
+":" @operator
+"," @punctuation.delimiter

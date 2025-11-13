@@ -14,4 +14,4 @@ language = "EHIR"
 
 [grammars.ehir]
 repository = "https://github.com/meshushkevich/tree-sitter-ehir"
-commit = "4b439b26fbf2a165b2cf996301c0b3f0dd543a12"
+commit = "19d656a4a299809426d9cf569edf59b60c15699d"
