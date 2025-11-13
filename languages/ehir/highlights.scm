@@ -1,4 +1,4 @@
-;; Keywords
+; Keywords
 
 [
     "imp"
@@ -36,63 +36,63 @@
     "store"
     "load"
     "cast"
+
+] @keyword
+
+[
     "br"
     "cbr"
     "ret"
     "switch"
     "match"
-] @keyword
+] @keyword.conditional
+
+[
+    "imp"
+] @keyword.import
 
 ; Comments
 (comment) @comment
 
 ; Types
-; (
-;     instruction_fn
-;         name: (identifier) @type
-; )
-; (
-;     instruction_enum
-;         name: (identifier) @type
-; )
-; (
-;     instruction_c_like_struct
-;         name: (identifier) @type
-; )
-; (
-;     instruction_tuple_like_struct
-;         name: (identifier) @type
-; )
-; (
-;     instruction_unit_like_struct
-;         name: (identifier) @type
-; )
-(untyped_variable name: (identifier) @variable)
+(instruction_fn
+    name: (identifier) @type
+)
+(instruction_enum
+    name: (identifier) @type
+)
+(instruction_c_like_struct
+    name: (identifier) @type
+)
+(instruction_tuple_like_struct
+    name: (identifier) @type
+)
+(instruction_unit_like_struct
+    name: (identifier) @type
+)
+(untyped_variable
+    name: (identifier) @variable
+)
+(typed_variable
+    name: (identifier) @variable
+)
+
 (instruction_call func_name: (identifier) @type)
+
+(visibility_modifier) @keyword.modifier
+(block_label) @label
+(param
+    name: (identifier) @variable.parameter
+)
 (type
     name: (identifier) @type
-    pointer: (identifier) @string.special
 )
-(block
-    block_name: (identifier) @namespace
-)
+(int) @number
+(isized_int) @number
+(usized_int) @number
 
-(visibility_modifier) @string.special
-(instruction_br label: (identifier) @namespace)
-
-
-; ; Variables
-; (typed_variable
-;   (untyped_variable (identifier) @variable)
-;   (identifier) @type)
-
-; ; Atomics
-; (isized_int) @number
-
-; ; Functions
-; (instruction_fn name: (identifier) @function)
-; (block block_name: (identifier) @namespace)
-
+(enum_initialization
+  variant: (identifier) @constant)
 
 ; Punctuation
 "{" @punctuation.bracket
@@ -102,3 +102,8 @@
 "=" @operator
 ":" @operator
 "," @punctuation.delimiter
+
+[
+    "::"
+    "->"
+] @punctuation.special
